@@ -6,14 +6,23 @@ $start = microtime(true);
 
 if ($_GET["X"] != "") $x = (int) $_GET["X"];
 if ($_GET["Y"] != "") $y = (float) str_replace(",", ".", $_GET['Y']);
-if ($_GET["R"] != "") { 
+if ($_GET["R"] != "" || isset($_GET["showBtn"])) { 
 	$r = (float) str_replace(",", ".", $_GET['R']); 
 } else {
 		$_SESSION = array();
 		if (session_id() != "" || isset($_COOKIE[session_name()]))
     		setcookie(session_name(), '', time()-2592000, '/');
 		session_destroy();
+		echo "Сессия закончена";
 	}
+
+echo "Таблица: ";
+echo isset($_GET["showBtn"]);
+echo "Отправка:";
+echo isset($_GET["submitBtn"]);
+echo "R: ";
+echo ($r == "");
+
 
 function check($x, $y, $r) {
 	if (($x*$x + $y*$y <= ($r*$r/2) && $x<=0 && $y>=0) || ($x<=0 && $y<=0 && $x>= -$r && $y>= -$r/2) || ($y>=2*$x-$r && $x>=0 && $y<=0)) {
@@ -402,7 +411,7 @@ $result = array($x, $y, $r, $short_answer, $currentTime, $time);
 	    <tbody>
 	    	<?php 
 	    	foreach ($_SESSION['history'] as $value) { 
-	    		if (isset($value[2])) {?>
+	    		if ($value[2] != "") {?>
 	       		<tr>
 		            <td><?php echo $value[0] ?></td>
 		            <td><?php echo $value[1] ?></td>
@@ -410,16 +419,6 @@ $result = array($x, $y, $r, $short_answer, $currentTime, $time);
 		            <td><?php echo $value[3] ?></td>
 		            <td><?php echo $value[4] ?></td>
 		            <td><?php echo $value[5] ?></td>
-		        </tr>
-		       <?php }
-		       else { ?>
-		       		<tr>
-			            <td></td>
-			            <td></td>
-			            <td></td>
-			            <td></td>
-			            <td></td>
-			            <td></td>
 		        </tr>
 		       <?php }
 		   }?>

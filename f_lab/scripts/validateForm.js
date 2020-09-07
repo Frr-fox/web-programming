@@ -36,24 +36,10 @@ submitBtn.onclick = function() {
 	}
 }
 
-// form.addEventListener('submit', function () {
-// 	response = "";
-// 	event.preventDefault();
-// 	var a = validateElement(r, 1, 4);
-// 	var b = validateElement(y, -3, 5);
-// 	if (!(a && b)) {
-// 		console.log(response);
-// 		result.textContent = response;
-// 	} else {
-// 		console.log("Все значения входят в диапазон");
-// 		form.action = "scripts/check.php";
-// 		form.submit();
-// 	}
-// })
 
 clearBtn.onclick = function() {
 	console.log("Очистить");
-	r.value = null;
+	r.value = "";
 	y.textContent = "";
 	x.value = "0";
 	result.textContent = "Вывод результата";
@@ -61,6 +47,11 @@ clearBtn.onclick = function() {
 	form.submit();
 }
 
+function show() {
+	form.action = `check.php`;
+	form.methos = "GET";
+	form.submit();
+}
 
 function validateElement(e, bottom, top) {
 	element = e.value.replace(",",".");
