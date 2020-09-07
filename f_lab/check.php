@@ -13,15 +13,7 @@ if ($_GET["R"] != "" || isset($_GET["showBtn"])) {
 		if (session_id() != "" || isset($_COOKIE[session_name()]))
     		setcookie(session_name(), '', time()-2592000, '/');
 		session_destroy();
-		echo "Сессия закончена";
 	}
-
-echo "Таблица: ";
-echo isset($_GET["showBtn"]);
-echo "Отправка:";
-echo isset($_GET["submitBtn"]);
-echo "R: ";
-echo ($r == "");
 
 
 function check($x, $y, $r) {
@@ -42,7 +34,8 @@ if ($short_answer == "Да") {
 
 if ($_GET["R"] == "") $answer = "Вывод результата";
 
-$time = microtime(true) - $start;
+$time = round((microtime(true) - $start)*1000000, 2);
+
 
 $result = array($x, $y, $r, $short_answer, $currentTime, $time);
 
@@ -405,7 +398,7 @@ $result = array($x, $y, $r, $short_answer, $currentTime, $time);
 	            <th>R</th>
 	            <th>Попадание</th>
 	            <th>Время</th>
-	            <th>Время выполнения</th>
+	            <th>Время выполнения, мкс</th>
 	        </tr>
 	    </thead>
 	    <tbody>
