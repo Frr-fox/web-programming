@@ -13,7 +13,7 @@ function checklOnChange() {
 	var a = validateElement(r, 1, 4);
 	var b = validateElement(y, -3, 5);
 	console.log(response === "");
-	if (response === "") response = `Вывод результата`;
+	if (response === "") response = `Данные введены правильно`;
 	console.log("Ответ: ", response);
 	console.log(a && b);
 	result.textContent = response;
@@ -30,7 +30,7 @@ submitBtn.onclick = function() {
 		result.textContent = response;
 	} else {
 		console.log("Все значения входят в диапазон");
-		form.action = `/f_lab/scripts/check.php`;
+		form.action = `check.php`;
 		form.methos = "GET"
 		form.submit();
 	}
@@ -53,15 +53,21 @@ submitBtn.onclick = function() {
 
 clearBtn.onclick = function() {
 	console.log("Очистить");
-	r.value = "";
+	r.value = null;
 	y.textContent = "";
 	x.value = "0";
 	result.textContent = "Вывод результата";
+	form.methos = "GET";
+	form.submit();
 }
 
 
 function validateElement(e, bottom, top) {
 	element = e.value.replace(",",".");
+	if (!element) {
+		response += `Введите данные в поле ${e.name}. ` + "\n"
+		return false;
+	}
 	if (isNaN(+element)) {
 		response += `Неверный формат данных. Введите в поле ${e.name} дробное число. ` + "\n"
 		return false;

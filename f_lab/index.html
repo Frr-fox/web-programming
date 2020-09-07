@@ -5,6 +5,7 @@
 	<title>Лабораторная №1</title>
 	<link rel="stylesheet" href="stylesheet/main.css">
 	<link rel="stylesheet" href="stylesheet/button_style.css">
+	<link rel="icon" type="image/png" href="images/log.png" />
 </head>
 
 <body>
@@ -63,12 +64,6 @@
             </svg>
 		</div>
 
-		<!-- <?php
-			if (isset($_GET['submitBtn'])){
-			include "scripts/check.php";
-		}
-		?> -->
-
 		<form name="formForValidate" method="GET" oninput="checklOnChange()" class="col-2-2 grid-2">
 			
 				<label for="r_value">Значение R</label>
@@ -126,7 +121,6 @@
 			<table class="table table-hover" width="100%" align="center">
     <thead>
         <tr>
-            <th>№</th>
             <th>X</th>
             <th>Y</th>
             <th>R</th>
@@ -136,15 +130,17 @@
         </tr>
     </thead>
     <tbody>
-       <tr>
-            <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+      	<?php 
+      	foreach ($_SESSION['history'] as $value) { ?>
+	       	<tr>
+		        <td><?php echo $value[0] ?></td>
+		        <td><?php echo $value[1] ?></td>
+		        <td><?php echo $value[2] ?></td>
+		        <td><?php echo $value[3] ?></td>
+		        <td><?php echo $value[4] ?></td>
+		        <td><?php echo $value[5] ?></td>
+		     </tr>
+		<?php }?>
     </tbody>
 </table>
 	</section>
@@ -152,7 +148,7 @@
 
 <footer>
 	<section>
-		<a href="https://github.com/Frr-fox" target="_blank">Ссылка на github</a>
+		<a href="https://github.com/Frr-fox/web-programming/tree/master/f_lab" target="_blank">Ссылка на github</a>
 		<a href="task.html" target="_blank">Текст задания</a>
 	</section>
 	<h5>Сентябрь, 2020</h5>
