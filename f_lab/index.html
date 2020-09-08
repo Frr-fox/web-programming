@@ -14,6 +14,220 @@
 	<span>Вариант 2319</span>
 </header>
 
+<style type="text/css">
+	.button_style {
+		  display: inline-block;
+		  color: white;
+		  text-decoration: none;
+		  padding: 0.5em 2em;
+		  outline: none;
+		  border-width: 2px 0;
+		  border-style: solid none;
+		  border-color: #FDBE33 #000 #D77206;
+		  border-radius: 6px;
+		  background: linear-gradient(#F3AE0F, #E38916) #E38916;
+		  transition: 0.2s;
+		} 
+	.button_style:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
+	.button_style:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, section, summary,
+	time, mark, audio, video {
+	  	margin: 0;
+	  	padding: 0;
+	  	border: 0;
+	  	font-size: 100%;
+	  	font: inherit;
+	  	vertical-align: baseline;
+	}
+
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section, div {
+		display: block;
+
+	}
+
+	body {
+	  	line-height: 1;
+	  	color: #656665;
+	  	font-family: "Lucida Grande";
+	}
+
+	/*
+	========================
+	Раделение на секции
+	========================
+	*/
+
+	.container,
+	.grid {
+	  	margin: 2% 1%;
+	  	width: 85%;
+	}
+	.container {
+		padding-left: 3%;
+	  	padding-right: 3%;
+	}
+	.grid, .col-2, .grid-2, .col-2-2 {
+		width: 95%;
+	}
+
+	.col-2, .col-2-2 {
+		display: inline-block;
+	  	vertical-align: top;
+		width: 45%;
+	}
+
+	.grid-2 {
+		margin: 2% 2%;
+	  	width: 50%;
+	}
+
+	.col-2-2 {
+		margin: 2% 1.5% 1% 1%;
+	}
+
+	form {
+		width: 60%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	/*
+	=======================
+	Радио-кнопки
+	=======================
+	*/
+
+	.caption {
+		margin-left: 3.2%;
+		margin-right: 3.2%;
+	}
+
+	._caption {
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.bottom {
+		margin-top: 6%;
+		margin-bottom: 4%;
+	}
+
+	.text_y {
+		margin-top: 10%;
+		margin-bottom: 10%;
+	}
+
+	/*
+	========================
+	Таблица с результатами
+	========================
+	*/
+	table {
+	font-family: "Lucida Grande", Sans-Serif;
+	text-align: center;
+	border-collapse: separate;
+	border-spacing: 5px;
+	background-color: rgba(243, 174, 15, 0.3);
+	border: 5px solid #F3AE0F;
+	border-radius: 20px;
+	}
+	th {
+	padding: 10px;
+	}
+	td {
+	background-color: rgba(243, 174, 15, 0.5);
+	padding: 10px;
+	border-radius: 10px;
+	}
+
+	/*
+	======================
+	Заголовок и конец
+	======================
+	*/
+
+	header, footer {
+		background-color: #072E36;
+		font-family: fantasy;
+		color: #648880;
+		font-size: 18px;
+		font-weight: inherit;
+		align-self: end;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		padding-bottom: 10px;
+	    padding-top: 10px;
+	}
+
+	/*
+	======================
+	Шапка-заголовок
+	======================
+
+	*/
+
+	header {
+		height: 20px;
+	}
+
+	span {
+		float: left;
+		margin-left: 10%;
+		margin-right: 20%;
+	}
+
+
+	/*
+	=======================
+	Гиперссылки
+	=======================
+	*/
+
+	a {
+		color: #dfe2e5;
+		float: left;
+	  	margin: 2% 15%;
+	  	width: 20%;
+	}
+
+	a:hover {
+		color: coral;
+	}
+
+	/*
+	======================
+	Окончание
+	======================
+	*/
+
+	h5 {
+		border-bottom: 1px solid lightslategrey;
+		padding-bottom: 5px;
+	}
+
+
+	.log img {
+		width: 3.5%;
+		margin: 1.5% 0%;
+		padding: 0% 0%;
+	}
+
+</style>
+
 <section class="container">
 	<p>Данный скрипт определяет попадание точки в заданную область. Значение X может принимать только целые числа от -3 до 5. Значение Y - дробное число от -3 до 5. Значение R - дробное число от 1 до 4</p>
 	<section class="grid">

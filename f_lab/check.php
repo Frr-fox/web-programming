@@ -4,17 +4,16 @@ date_default_timezone_set('Europe/Moscow');
 $currentTime = date("H:i:s");
 $start = microtime(true);
 
-if ($_GET["X"] != "") $x = (int) $_GET["X"];
-if ($_GET["Y"] != "") $y = (float) str_replace(",", ".", $_GET['Y']);
-if ($_GET["R"] != "" || isset($_GET["showBtn"])) { 
-	$r = (float) str_replace(",", ".", $_GET['R']); 
-} else {
-		$_SESSION = array();
-		if (session_id() != "" || isset($_COOKIE[session_name()]))
+if ($_GET["X"] != "" && in_array($_GET["X"], range(-3, 5))) $x = $_GET["X"];
+if ($_GET["Y"] != "" && $_GET["Y"]>=-3 && $_GET["Y"]<=5) $y = (float) str_replace(",", ".", $_GET['Y']);
+if (($_GET["R"] != "" && $_GET["R"]>=1 && $_GET["R"]<=4) || isset($_GET["showBtn"])) $r = (float) str_replace(",", ".", $_GET['R']); 
+if (isset($_GET["clearBtn"])) {
+	$_SESSION = array();
+		if (session_id() != "" || isset($_COOKIE[session_name()])) {
     		setcookie(session_name(), '', time()-2592000, '/');
+		}
 		session_destroy();
 	}
-
 
 function check($x, $y, $r) {
 	if (($x*$x + $y*$y <= ($r*$r/2) && $x<=0 && $y>=0) || ($x<=0 && $y<=0 && $x>= -$r && $y>= -$r/2) || ($y>=2*$x-$r && $x>=0 && $y<=0)) {
@@ -404,7 +403,7 @@ $result = array($x, $y, $r, $short_answer, $currentTime, $time);
 	    <tbody>
 	    	<?php 
 	    	foreach ($_SESSION['history'] as $value) { 
-	    		if ($value[2] != "") {?>
+	    		if ($value[0] != "" && $value[1] != "" && $value[2] != "") {?>
 	       		<tr>
 		            <td><?php echo $value[0] ?></td>
 		            <td><?php echo $value[1] ?></td>
