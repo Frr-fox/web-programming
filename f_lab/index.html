@@ -31,19 +31,7 @@
 	.button_style:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
 	.button_style:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
 
-	html, body, div, span, applet, object, iframe,
-	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-	a, abbr, acronym, address, big, cite, code,
-	del, dfn, em, img, ins, kbd, q, s, samp,
-	small, strike, strong, sub, sup, tt, var,
-	b, u, i,
-	dl, dt, dd, ol, ul, li,
-	fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td,
-	article, aside, canvas, details, embed,
-	figure, figcaption, footer, header, hgroup,
-	menu, nav, output, section, summary,
-	time, mark, audio, video {
+	html {
 	  	margin: 0;
 	  	padding: 0;
 	  	border: 0;
@@ -52,8 +40,7 @@
 	  	vertical-align: baseline;
 	}
 
-	article, aside, details, figcaption, figure,
-	footer, header, hgroup, menu, nav, section, div {
+	aside, footer, header, section, div {
 		display: block;
 
 	}
@@ -332,32 +319,6 @@
 				<button name="showBtn" type="show" class="col-2-2 button_style" onclick="show()">Показать таблицу</button>		
 				<div id="result" class="bottom">Вывод результата</div>	
 		</form>
-			<!-- Таблица
-			<table class="table table-hover" width="100%" align="center">
-    <thead>
-        <tr>
-            <th>X</th>
-            <th>Y</th>
-            <th>R</th>
-            <th>Результат</th>
-            <th>Время</th>
-            <th>Время выполнения</th>
-        </tr>
-    </thead>
-    <tbody>
-      	<?php 
-      	foreach ($_SESSION['history'] as $value) { ?>
-	       	<tr>
-		        <td><?php echo $value[0] ?></td>
-		        <td><?php echo $value[1] ?></td>
-		        <td><?php echo $value[2] ?></td>
-		        <td><?php echo $value[3] ?></td>
-		        <td><?php echo $value[4] ?></td>
-		        <td><?php echo $value[5] ?></td>
-		     </tr>
-		<?php }?>
-    </tbody>
-</table>-->
 	</section>
 </section>
 
