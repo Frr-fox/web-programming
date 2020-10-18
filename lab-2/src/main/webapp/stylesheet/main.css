@@ -1,0 +1,254 @@
+/* Styles for main list
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+aside, footer, header, section, div {
+    display: block;
+
+}
+
+body {
+    line-height: 1;
+    color: #656665;
+    font-family: "Lucida Grande", serif;
+}
+
+/*
+========================
+Раделение на секции
+========================
+*/
+
+.container,
+.grid {
+    margin: 2% 2%;
+    width: 85%;
+}
+.container {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.grid, .col-2, .grid-2, .col-2-2, .col-2-3 {
+    width: 95%;
+}
+
+.col-2, .col-2-2, .col-2-3 {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+
+.grid-2 {
+    margin: 2% 2%;
+    width: 50%;
+}
+
+.col-2-2, .col-2-3 {
+    margin: 2% 1.5% 1% 1%;
+}
+
+.col-2-3 {
+    width: 20%;
+}
+
+form {
+    width: 60%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+form label, form > div {
+    margin: 1.5em 0 2em 2em;
+}
+form > div {
+    margin-left: 0;
+}
+
+/*
+=======================
+Checkbox
+=======================
+*/
+
+.bottom {
+    margin-top: 6%;
+}
+.bottomX2 {
+    margin: 7em 0 0;
+}
+
+.check-material input[type="checkbox"] {
+    display:none
+}
+
+.check-material input[type="checkbox"]:checked + label {
+    background:#F3AE0F;
+    border-color:#F3AE0F;
+}
+
+.check-material input[type="checkbox"]:checked + label:after {
+    transform:scale(1.3)
+}
+
+.check-material label {
+    display:block;
+    box-sizing:border-box;
+    width:1.5em;
+    height:1.5em;
+    background:#CCC;
+    border:3px solid #7A7A7A;
+    border-radius:10%;
+    position:relative;
+    cursor:pointer;
+    transition:.2s;
+    margin: 0 1%;
+    padding: 0;
+}
+
+.check-material label:before {
+    content:'';
+    position:absolute;
+    display:block;
+    height:300%;
+    width:300%;
+    top:-100%;
+    left:-100%;
+    z-index:-1;
+    border-radius:50%;
+    transition:.3s
+}
+
+.check-material label:after {
+    content:'';
+    display:block;
+    height:100%;
+    width:100%;
+    background:url(https://cbwconline.com/IMG/Codepen/Check.svg) center center no-repeat;
+    background-size:contain;
+    transform:scale(0);
+    transition:.2s
+}
+
+.check-material label:active:before {
+    background:#bfbfbf
+}
+
+
+/*
+========================
+Таблица с результатами
+========================
+*/
+table {
+    font-family: "Lucida Grande", Sans-Serif, serif;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background-color: rgba(243, 174, 15, 0.3);
+    border: 5px solid #F3AE0F;
+    border-radius: 15px;
+}
+th {
+    padding: 10px;
+}
+td {
+    background-color: rgba(243, 174, 15, 0.5);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+/*
+======================
+Заголовок и конец
+======================
+*/
+
+header, footer {
+    background-color: #072E36;
+    font-family: fantasy;
+    color: #648880;
+    font-size: 18px;
+    font-weight: inherit;
+    align-self: end;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/*
+======================
+Шапка-заголовок
+======================
+
+*/
+
+/*p {
+  background: #648880;
+  background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);
+}*/
+
+header {
+    height: 20px;
+}
+
+span {
+    float: left;
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+
+/*
+=======================
+Гиперссылки
+=======================
+*/
+
+a {
+    color: #dfe2e5;
+    float: left;
+    margin: 2% 15%;
+    width: 20%;
+}
+
+a:hover {
+    color: coral;
+}
+
+a#new_request {
+    text-decoration: none;
+    color: #656665;
+    margin: 2em 0 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+a#new_request:hover {
+    color: coral;
+}
+
+/*
+======================
+Окончание
+======================
+*/
+
+h5 {
+    border-bottom: 1px solid lightslategrey;
+    padding-bottom: 5px;
+}
+
+
+.log img {
+    width: 3.5%;
+    margin: 1.5% 0;
+    padding: 0 0;
+}
