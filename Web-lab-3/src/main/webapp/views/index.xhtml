@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+    <title>Лабораторная работа №3</title>
+    <link rel="shortcut icon" type="image/png" href="#{resource['images/log.png']}"/>
+</h:head>
+<h:body>
+    <h:outputStylesheet library="css" name="main.css"/>
+    <h:outputStylesheet library="css" name="button_style.css"/>
+    <div id="header">
+        <span>Нечкасова Олеся Алексеевна, группа P3212</span>
+        <span>Вариант 31750</span>
+    </div>
+    <div class="container">
+        <p>Приложение на базе JavaServer Faces Framework, которое осуществляет проверку попадания точки в заданную область
+            на координатной плоскости.</p>
+        <h:panelGrid columns="2" styleClass="width: 900px">
+            <h:panelGrid>
+                <canvas jsf:id="area" width="450" height="450" style="padding-right: 10%">Canvas not supported.</canvas>
+                <label id="coordinates" />
+            </h:panelGrid>
+            <h:panelGrid>
+                <h:form>
+                    <h:link styleClass="new_request" label="new-request" value="Вернуться на стартовую страницу" outcome="go-to-home" style="padding-left: 30%"/>
+                </h:form>
+                <h:form id="form" styleClass="pointsTable" style="width: auto">
+                    <h:panelGrid columns="1" style="width: 27em; padding-left: 20%" styleClass="slider">
+                        <h:inputHidden id="R" name="R" value="#{point.RValue}" />
+                        <h:outputText id="outputR" value="Значение R: #{point.RValue}" />
+                        <p:slider for="R" display="outputR" displayTemplate="Значение R: {value}"
+                                  minValue="2" maxValue="5" step="0.1" onSlideEnd="changeR()" rendered="true">
+                            <p:ajax />
+                        </p:slider>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        <h:panelGrid columns="1">
+                            <h:outputText id="Y_text" value="Значение Y: "/>
+                            <h:inputText id="Y" value="#{point.YText}" a:placeholder="[-3...3]" style="width: 15em" required="true" requiredMessage="Введите значение в поле Y">
+                                <f:validator validatorId="textValidator"/>
+                                <p:ajax event="blur"/>
+                            </h:inputText>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1" style="width: 15em" styleClass="slider">
+                            <h:inputHidden id="X" value="#{point.XValue}" />
+                            <h:outputText id="outputX" value="Значение X: #{point.XValue}" />
+                            <p:slider for="X" display="outputX" displayTemplate="Значение X: {value}"
+                                      minValue="-5" maxValue="5" step="0.1" rendered="true">
+                            </p:slider>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid columns="3" style="width: 15em">
+                        <h:commandButton id="submit" action="#{databaseManager.addPoint(point)}" styleClass="button_style" value="Отправить">
+                            <f:ajax event="change" render="pointsTable" />
+                        </h:commandButton>
+                        <h:button id="clear" action="#{point.initForm}" styleClass="button_style" value="Очистить поля" />
+                        <h:button id="delete"  onclick="window.deleteData()" styleClass="button_style" value="Удалить данные" />
+                    </h:panelGrid>
+                    <h:message for="Y" style="width: 20em; padding-top: 8%; color: indianred"/>
+                </h:form>
+                <h:form id="hidden-form">
+                    <h:inputHidden id="X-hidden" value="#{point.XHiddenValue}" />
+                    <h:inputHidden id="Y-hidden" value="#{point.YHiddenValue}" />
+                    <h:inputHidden id="R-hidden" value="#{point.RHiddenValue}" />
+                    <p:remoteCommand name="submitCanvasClick" update="pointsTable" process="@form"
+                                     action="#{databaseManager.createPoint(point.XHiddenValue, point.YHiddenValue, point.RHiddenValue)}" oncomplete="changeR()" />
+                </h:form>
+                <h:form>
+                    <p:remoteCommand name="deleteData" update="pointsTable" process="@form" action="#{databaseManager.deleteData}" oncomplete="changeR()" />
+                </h:form>
+            </h:panelGrid>
+        </h:panelGrid>
+    </div>
+    <p:dataTable id="pointsTable" styleClass="pointsTable" value="#{databaseManager.pointsList}" var="dot">
+        <p:column headerText="X" styleClass="th">
+            <h:outputText styleClass="td" value="${dot.XValue}"/>
+        </p:column>
+        <p:column headerText="Y" styleClass="th">
+            <h:outputText styleClass="td" value="${dot.YValue}"/>
+        </p:column>
+        <p:column headerText="R" styleClass="th">
+            <h:outputText styleClass="td" value="${dot.RValue}"/>
+        </p:column>
+        <p:column headerText="Попадание" styleClass="th">
+            <h:outputText styleClass="td" value="${dot.inArea}"/>
+        </p:column>
+        <p:column headerText="Время" styleClass="th">
+            <h:outputText styleClass="td" value="${dot.time}"/>
+        </p:column>
+    </p:dataTable>
+    <div id="footer">
+        <div>
+            <h:outputLink value="https://github.com/Frr-fox/web-programming" target="_blank">
+                <h:outputText value="Ссылка на github" />
+            </h:outputLink>
+            <h:outputLink value="https://se.ifmo.ru/courses/web" target="_blank">
+                <h:outputText value="Текст задания" />
+            </h:outputLink>
+        </div>
+        <h5>Ноябрь, 2020</h5>
+        <div class="log">
+            <h:graphicImage library="images" type="image/png" name="log.png" />
+        </div>
+    </div>
+    <h:outputScript library="scripts" name="canvas.js" />
+</h:body>
+</html>
