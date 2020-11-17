@@ -22,14 +22,14 @@
             <h:panelGrid columns="2">
                 <h:form style="width: 15em; padding-left: 10%">
                     <p:clock id="clock" displayMode="analog"/>
-                    <p:poll interval="5" update="clock" />
+                    <p:poll interval="5" update="clock"/>
                 </h:form>
                 <h:form>
                     <h:link styleClass="new_request" label="new-request" value="Сделать новый запрос" outcome="go-to-index" style="text-align: center"/>
                 </h:form>
-                <h:outputText id="time" value="#{clock.time}" style="padding-left: 7%" />
-                <h:form id="form">
-                    <p:commandButton id="updateTime" action="#{clock.updateTime}" update="time" style="display: none"/>
+                <h:form>
+                    <h:outputText id="time" value="#{clock.time}" style="padding-left: 15%" />
+                    <p:poll interval="5" update="time" listener="#{clock.updateTime}"/>
                 </h:form>
                 </h:panelGrid>
         </p:outputPanel>
@@ -47,11 +47,5 @@
             <h:graphicImage library="images" type="image/png" name="log.png" />
         </div>
     </div>
-
-    <script>
-        setInterval (function () {
-            document.getElementById('form:updateTime').click();
-        }, 5000);
-    </script>
     </h:body>
 </html>
