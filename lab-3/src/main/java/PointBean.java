@@ -1,5 +1,3 @@
-import lombok.NoArgsConstructor;
-
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.time.LocalDateTime;

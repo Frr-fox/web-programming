@@ -1,4 +1,3 @@
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
@@ -15,7 +14,6 @@ public class DatabaseManagerBean implements Serializable {
     private static final String PASS = "uov562";
     private ArrayList<PointBean> pointsList;
 
-    @Inject
     private PointBean currentPoint;
 
     public DatabaseManagerBean() {
