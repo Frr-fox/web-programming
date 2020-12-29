@@ -1,0 +1,423 @@
+@charset "utf-8";
+@import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* Styles for main list*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+aside, footer, header, section, div {
+    display: block;
+
+}
+
+body {
+    line-height: 1;
+    color: #606468;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/*
+========================
+Раделение на секции
+========================
+*/
+
+.grid {
+    margin: 2% 2%;
+    width: 90%;
+    flex-direction: row;
+}
+
+.col-2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin-left: 2%;
+}
+
+table {
+    margin-left: 5%;
+    width: 90%;
+    height: 100%;
+    border-spacing: .7em;
+}
+
+/*
+========================
+Form
+========================
+*/
+
+form {
+    width: 45%;
+    padding: 2.5% 0;
+    text-align: center;
+    background-color: #2c3338;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+ }
+
+form .parameters {
+    padding: 2% 0;
+}
+
+/*
+======================
+Header and Footer
+======================
+*/
+
+#header, #footer {
+    background-color: #2c3338;
+    font-family: fantasy;
+    color: #606468;
+    font-size: 18px;
+    font-weight: inherit;
+    align-self: end;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+/*
+=======================
+Pages
+=======================
+*/
+
+.login_1, .login_2 {
+    background-color: #282c34;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: #606468;
+}
+
+.login_1 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+=======================
+Login
+=======================
+*/
+
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+
+#login_form input, .button_in_form, form input[type="text"] {
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LOGIN ---------- */
+
+#login_form {
+    margin: 8.6% auto;
+    padding: 2.5%;
+    width: 25%;
+    background-color: #2c3338;
+    color: #606468;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+#login_form span {
+    background-color: #363b41;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    color: #606468;
+    display: block;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 13%;
+}
+
+#login_form input, .button_in_form {
+    height: 50px;
+    outline: none;
+}
+
+#login_form input[type="text"], #login_form input[type="password"], form input[type="text"], #login_form input[type="submit"]{
+    background-color: #3b4148;
+    border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    color: #606468;
+    margin-bottom: 1em;
+    padding: 0 5%;
+    width: 76%;
+}
+
+form input[type="text"] {
+    outline: none;
+    height: 1.8em;
+    width: 55%;
+}
+
+#login_form input:focus, .button_in_form:focus {
+    color:#fff;
+}
+
+#login_form input[type="button"], #login_form input[type="submit"],.button_in_form {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #ea4c88;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    cursor:pointer;
+    width: 75%;
+}
+
+#login_form input[type="button"]:hover, #login_form input[type="submit"],.button_in_form:hover {
+    background-color: #d44179;
+}
+
+.button_in_form {
+    margin: 5% 2.6%;
+    width: 28%;
+}
+
+.button_close_session {
+    width: 50%;
+}
+
+#login_form > p {
+    text-align: center;
+    padding: 0 8%;
+}
+
+#login_form > p span {
+    padding-left: 0.5%;
+    height: auto;
+    width: auto;
+    line-height: 2em;
+}
+
+#toLogin {
+    margin: 3.5% 0 12%;
+}
+
+/*
+=======================
+Radio Buttons
+=======================
+*/
+
+form input[type='radio']:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    top: -10%;
+    left: -10%;
+    position: relative;
+    background-color: #606468;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #606468;
+}
+
+form input[type='radio']:checked:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    top: -10%;
+    left: -10%;
+    position: relative;
+    background-color: #ea4c88;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #606468;
+}
+
+/*
+=================================
+Register Button and User Answer
+=================================
+*/
+
+.register_button {
+    text-decoration: underline;
+    background: transparent none;
+    color: #606468;
+    border: 2px solid transparent;
+    padding-left: 6%;
+}
+.register_button:hover {
+    color: coral;
+}
+
+.register_button:focus {
+    outline: none;
+}
+
+.userAnswer {
+    font-size: 18px;
+    color: #d44179;
+    padding: 0 4% 4%;
+}
+
+/*
+========================
+Table with results
+========================
+*/
+.pointsTable {
+    margin: 5%;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background-color: #2c3338;
+    border: 3px solid #606468;
+    border-radius: 7px;
+    empty-cells: show;
+    padding-right: 0;
+}
+.pointsTable th, .pointsTable td  {
+    padding: 1%;
+    background-color: #3b4148;
+    border-radius: 7px;
+}
+
+
+/*
+=======================
+Гиперссылки
+=======================
+*/
+
+a {
+    color: #606468;
+    float: left;
+    margin: 2% 15%;
+    width: 20%;
+}
+
+a:hover {
+    color: coral;
+}
+
+/*
+======================
+Other
+======================
+*/
+
+h1 {
+    font-size: 18px;
+    padding-bottom: 2.5%;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 12% 0 3.5%;
+}
+
+h5 {
+    border-bottom: 1px solid lightslategrey;
+    padding-bottom: 5px;
+}
+
+
+.log img {
+    width: 3.5%;
+    margin: 1.5% 0;
+    padding: 0 0;
+}
+
+/* const */
+$mobile: 0;
+$tablet: 669px;
+$desktop: 1144px;
+
+/* Desktop */
+@media screen and (min-width: $desktop) {
+    .col-2-2 {
+        display: inline-block;
+        vertical-align: top;
+        width: 48%;
+        margin-left: 2%;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: $tablet) and (max-width: $desktop) {
+    .grid {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        margin: 5% 17%;
+        width: 70%;
+    }
+
+    #login_form {
+        width: 30%
+    }
+}
+
+@media screen and (min-width: 669px) and (max-width: 800px) {
+    #login_form {
+        width: 45%
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: $tablet) {
+    .grid {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        margin: 5% 9%;
+        width: 90%;
+    }
+
+    #login_form {
+        width: 55%
+    }
+}
