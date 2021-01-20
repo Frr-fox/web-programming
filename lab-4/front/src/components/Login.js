@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import '../styles/register.css';
+import '../styles/loginAndForm.css';
 import {connect} from "react-redux";
-import '../styles/main.scss';
 import {login, registration, setAnswer, setLogin} from "../store/actions/userAction";
 
 class Login extends Component {

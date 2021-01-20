@@ -1,0 +1,23 @@
+/*
+========================
+Table with results
+========================
+*/
+.pointsTable {
+  margin: 5%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 5px;
+  background-color: #2c3338;
+  border: 3px solid #606468;
+  border-radius: 7px;
+  empty-cells: show;
+  padding-right: 0;
+}
+.pointsTable th, .pointsTable td  {
+  padding: 1%;
+  background-color: #3b4148;
+  border-radius: 7px;
+}

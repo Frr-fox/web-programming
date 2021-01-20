@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import '../styles/radioButton.css';
+import '../styles/loginAndForm.css';
 import {connect} from 'react-redux';
-import '../styles/main.scss';
 import {sendPoint, deletePoints, setMessageX, setR, setX, setY} from "../store/actions/pageAction";
 import {logout} from "../store/actions/userAction";
 
@@ -15,7 +16,7 @@ class Form extends Component {
         this.onChangeRValue = this.onChangeRValue.bind(this);
         this.onChangeXValue = this.onChangeXValue.bind(this);
         this.onChangeYValue = this.onChangeYValue.bind(this);
-        this.clear= this.clear.bind(this);
+        this.clear = this.clear.bind(this);
         this.goBack = this.goBack.bind(this);
         this.submitPoint = this.submitPoint.bind(this);
         this.clearTable = this.clearTable.bind(this);
@@ -93,12 +94,13 @@ class Form extends Component {
     }
 
     clear(event) {
+        document.getElementById("xValue").value = "";
+        this.onChangeXValue(event);
+        this.onChangeRValue(event);
         this.setState({
             RValue: "0",
             YValue: "0"
         });
-        document.getElementById("xValue").value = "";
-        this.onChangeXValue(event);
     }
 
     goBack(event){

@@ -1,0 +1,26 @@
+/*
+=================================
+Register Button and User Answer
+=================================
+*/
+
+.register_button {
+    text-decoration: underline;
+    background: transparent none;
+    color: #606468;
+    border: 2px solid transparent;
+    padding-left: 6%;
+}
+.register_button:hover {
+    color: coral;
+}
+
+.register_button:focus {
+    outline: none;
+}
+
+.userAnswer {
+    font-size: 18px;
+    color: #d44179;
+    padding: 0 4% 4%;
+}

@@ -1,0 +1,109 @@
+/*
+=======================
+Login
+=======================
+*/
+
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+
+#login_form input, .button_in_form, form input[type="text"] {
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LOGIN ---------- */
+
+#login_form span {
+    background-color: #363b41;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    color: #606468;
+    display: block;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 13%;
+}
+
+#login_form input, .button_in_form {
+    height: 50px;
+    outline: none;
+}
+
+#login_form input[type="text"], #login_form input[type="password"], form input[type="text"], #login_form input[type="submit"]{
+    background-color: #3b4148;
+    border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    color: #606468;
+    margin-bottom: 1em;
+    padding: 0 5%;
+    width: 76%;
+}
+
+form input[type="text"] {
+    outline: none;
+    height: 1.8em;
+    width: 55%;
+}
+
+#login_form input:focus, .button_in_form:focus {
+    color:#fff;
+}
+
+#login_form input[type="button"], #login_form input[type="submit"],.button_in_form {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #ea4c88;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    cursor:pointer;
+    width: 75%;
+}
+
+#login_form input[type="button"]:hover, #login_form input[type="submit"],.button_in_form:hover {
+    background-color: #d44179;
+}
+
+.button_in_form {
+    margin: 5% 2.6%;
+    width: 28%;
+}
+
+.button_close_session {
+    width: 50%;
+}
+
+#login_form > p {
+    text-align: center;
+    padding: 0 8%;
+}
+
+#login_form > p span {
+    padding-left: 0.5%;
+    height: auto;
+    width: auto;
+    line-height: 2em;
+}

@@ -1,22 +1,44 @@
 let path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js", // входная точка - исходный файл
+    entry: "./src/index.js",
     output:{
-        path: path.resolve(__dirname, './public'),     // путь к каталогу выходных файлов - папка public
+        path: path.resolve(__dirname, './public'),
         publicPath: '/public/',
-        filename: "bundle.js"       // название создаваемого файла
+        filename: "bundle.js"
     },
     module:{
-        rules:[   //загрузчик для jsx
+        rules:[
             {
-                test: /\.js?$/, // определяем тип файлов
-                exclude: /(node_modules)/,  // исключаем из обработки папку node_modules
-                loader: "babel-loader",   // определяем загрузчик
-                options:{
-                    presets:["@babel/preset-env", "@babel/preset-react"]    // используемые плагины
-                }
+                test: /\.js?$/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader",
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/index.html"
+        })
+    ]
 };

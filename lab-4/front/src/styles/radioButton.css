@@ -1,0 +1,33 @@
+/*
+=======================
+Radio Buttons
+=======================
+*/
+
+form input[type='radio']:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    top: -10%;
+    left: -10%;
+    position: relative;
+    background-color: #606468;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #606468;
+}
+
+form input[type='radio']:checked:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    top: -10%;
+    left: -10%;
+    position: relative;
+    background-color: #ea4c88;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #606468;
+}
