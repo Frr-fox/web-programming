@@ -12,7 +12,7 @@ public class DatabaseManagerBean implements Serializable {
     //ssh -Y -L5432:pg:5432 s284715@se.ifmo.ru -p2222
     private static final String URL = "jdbc:postgresql://127.0.0.1:5432/studs";
     private static final String LOGIN = "s284715";
-    private static final String PASS = "uov562";
+    private static final String PASS = "";
     private ArrayList<PointBean> pointsList;
 
     @Inject
